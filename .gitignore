@@ -1,4 +1,9 @@
-*/libs
+# Dependencies
+**/libs
+
+# Quarto files
+/.quarto/
+**/*.quarto_ipynb
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,sass
