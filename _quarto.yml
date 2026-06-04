@@ -1,0 +1,9 @@
+# These are settings for the whole project (including the intro page)
+project:
+  title: "Dunwoody-Slides"
+format:
+  html:
+    respect-user-color-scheme: true
+
+execute:
+  cache: true
