@@ -70,3 +70,43 @@ Revealjs settings worth considering:
 - center - can vertically center presentations instead of top-aligned!!
 
 # Make Some Slides
+
+## Folder Structure
+
+All of your new slides should go in the `./Slides` folder.
+
+You can also make sub-folders as necessary, especially for things like images or other external resource files.
+
+---
+
+## Slides Basics
+
+Make a new slide deck by making a `.qmd` file.
+
+This is basically a markdown file but with some extra tricks.
+
+You can put some settings in the `yaml frontmatter` at the top of the document:
+
+````quarto
+---
+title: "Setting Up for Quarto JS"
+---
+````
+
+You can make new sections with an H1 level header:
+
+````quarto
+# This Is a New Section (with its own title slide!)
+````
+
+And then new slides can be separated with a horizontal rule (`---`)
+
+Then maybe an H2 header for a slide title:
+
+````quarto
+---
+
+## New Slide
+
+Here is my slide!!
+````

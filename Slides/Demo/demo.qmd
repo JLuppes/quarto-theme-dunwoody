@@ -1,10 +1,24 @@
 ---
 title: "Quarto JS Demo"
+author: # more info: https://quarto.org/docs/journals/authors.html#author-metadata
+  - name: Bill Gates
+    orcid: 0000-0003-1689-0557
+    email: bill@gates.com
+    affiliations:
+      - name: Bill & Melinda Gates Foundation
+        address: 440 5th Ave N
+        city: Seattle
+        state: WA
+        postal-code: 98109-4631
+title-slide-attributes:
+  data-background-image: "images/cat.jpg"
+  data-background-size: cover
+  data-background-position: center
+  data-background-opacity: "0.5"
 ---
 
-# Quarto Slides Basics
+# Quarto Slides Basics - Write your slides in markdown!
 
-Write your slides in markdown!
 ---
 
 ## Start With a Markdown File
@@ -89,7 +103,7 @@ def view_member(id): # <1>
 
 ## Result:
 
-Highlight emtpy. Big code block!!!
+Highlight empty. Big code block!!!
 
 ```{.python code-line-numbers="" startFrom='100'}
 @app.route('/members/view/<int:id>')
@@ -241,6 +255,179 @@ console.log("Second!!!!!!") // <2>
 1. First
 2. Second
 
+---
+
+## Code Block Sizes
+
+This theme includes some logic for custom code block sizes.
+
+The sizes are defined in the `dunwoody.scss` theme in the `/*-- scss:defaults --*/` section at the top. Adding another entry should work without trouble if you follow the format of the others. These sizes use `vh` units as a percentage of viewport size, so they should scale with the presentation size. These are also maximum heights, so shorter code will still shrink to the smallest height possible.
+
+Available sizes:
+
+- Tall Code (`.tall-code`) - 85vh
+- Medium Code (`.med-code`) - 60vh
+- Short Code (`.short-code`) - 35vh
+- Micro Code (`.micro-code`) - 20vh
+
+You can apply these to any code block by adding the appropriate class to the code block:
+
+````quarto
+```{.css .tall-code}
+# code here
+```
+````
+
+---
+
+## Tall code!
+
+
+```{.css .tall-code}
+.car,
+.enemy {
+position: absolute;
+bottom: 100px;
+margin: auto;
+width: 50px;
+height: 100px;
+background-color: white;    /* <1> */
+line-height: 38px;
+font-size: 1.7em;
+text-align: center;
+vertical-align: middle;
+background-image: url(car2.png);
+background-size: cover;
+}
+.line {
+position: absolute;         /* <2> */
+height: 100px;              /* <2> */
+width: 10px;                /* <2> */
+margin-left: 195px;         /* <2> */
+background-color: white;    /* <2> */
+}
+.score {
+background-color: black;    /* <3> */
+height: 70px;               /* <3> */
+text-align: center;         /* <3> */
+color: white;               /* <3> */
+font-size: 1.5em;           /* <3> */
+font-family: fantasy;       /* <3> */
+}
+```
+
+---
+
+## Medium code!
+
+
+```{.css .med-code}
+.car,
+.enemy {
+position: absolute;
+bottom: 100px;
+margin: auto;
+width: 50px;
+height: 100px;
+background-color: white;    /* <1> */
+line-height: 38px;
+font-size: 1.7em;
+text-align: center;
+vertical-align: middle;
+background-image: url(car2.png);
+background-size: cover;
+}
+.line {
+position: absolute;         /* <2> */
+height: 100px;              /* <2> */
+width: 10px;                /* <2> */
+margin-left: 195px;         /* <2> */
+background-color: white;    /* <2> */
+}
+.score {
+background-color: black;    /* <3> */
+height: 70px;               /* <3> */
+text-align: center;         /* <3> */
+color: white;               /* <3> */
+font-size: 1.5em;           /* <3> */
+font-family: fantasy;       /* <3> */
+}
+```
+
+---
+
+## Short code!
+
+
+```{.css .short-code}
+.car,
+.enemy {
+position: absolute;
+bottom: 100px;
+margin: auto;
+width: 50px;
+height: 100px;
+background-color: white;    /* <1> */
+line-height: 38px;
+font-size: 1.7em;
+text-align: center;
+vertical-align: middle;
+background-image: url(car2.png);
+background-size: cover;
+}
+.line {
+position: absolute;         /* <2> */
+height: 100px;              /* <2> */
+width: 10px;                /* <2> */
+margin-left: 195px;         /* <2> */
+background-color: white;    /* <2> */
+}
+.score {
+background-color: black;    /* <3> */
+height: 70px;               /* <3> */
+text-align: center;         /* <3> */
+color: white;               /* <3> */
+font-size: 1.5em;           /* <3> */
+font-family: fantasy;       /* <3> */
+}
+```
+---
+
+## Micro code!
+
+
+```{.css .micro-code}
+.car,
+.enemy {
+position: absolute;
+bottom: 100px;
+margin: auto;
+width: 50px;
+height: 100px;
+background-color: white;    /* <1> */
+line-height: 38px;
+font-size: 1.7em;
+text-align: center;
+vertical-align: middle;
+background-image: url(car2.png);
+background-size: cover;
+}
+.line {
+position: absolute;         /* <2> */
+height: 100px;              /* <2> */
+width: 10px;                /* <2> */
+margin-left: 195px;         /* <2> */
+background-color: white;    /* <2> */
+}
+.score {
+background-color: black;    /* <3> */
+height: 70px;               /* <3> */
+text-align: center;         /* <3> */
+color: white;               /* <3> */
+font-size: 1.5em;           /* <3> */
+font-family: fantasy;       /* <3> */
+}
+```
 
 # Some More Tricks
 
@@ -364,3 +551,9 @@ Or make one specific thing incremental by surrounding it with a div with an expl
 - Second
 - Third
 :::
+
+---
+
+## Formatting Lists
+
+You can find more info on formatting lists here: [Quarto Guide](https://quarto.org/docs/authoring/markdown-basics.html#lists)
