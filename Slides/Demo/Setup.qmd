@@ -1,0 +1,72 @@
+---
+title: "Setting Up for Quarto JS"
+---
+
+# Intial Setup: Get Things Installed
+
+## Setup Steps
+
+1. Install Quarto
+2. Get the Dunwoody Theme Repo
+3. Configure Your Quarto Environment
+
+---
+
+## Install Quarto
+
+### Quarto CLI
+
+Download the package from the [Quarto site](https://quarto.org/docs/get-started/) and run the installer.
+
+### VS Code Extension
+
+There is a good [VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto).
+
+There are also some for Jupyter, RStudio, and Neovim, if those fit your workflow.
+
+---
+
+## Get the Dunwoody Theme Repo
+
+Link here: (coming soon)
+
+---
+
+## Configure Your Quarto Environment
+
+Two files to configure:
+
+- `_quarto.yml` in the base repo folder
+  - Applied to all files in the repo
+  - Good for things like author name and footer content
+- `_metadata.yml` in the Slides folder
+  - Just affects things in the slides folder
+  - Controls presentation settings and output formats!!!!
+
+---
+
+## _quarto.yml (Project-level)
+
+- Author Name (will display on title cards unless overridden)
+- Project Title (not sure where this is used?)
+
+---
+
+## _metadata.yml (Slides-level)
+
+The `format` header controls which formats are generated when you use `quarto render`.
+
+These are defaulted to revealjs (html-based slideshow) and pdf.
+
+## _metadata.yml (continued)
+
+Revealjs settings worth considering:
+
+- Slide numbers on/off
+- Theme (can stack additional or swap out the Dunwoody theme)
+- Syntax highlighting (other plugins exist, monokai by default feels pretty universal)
+- Embed resources (puts all extra files inside the html document, but slows down rendering times, so turn it off for testing and on for publishing)
+- width/height - can be adjusted based on your needs, presentations should adapt responsively to most sizes. 960x1080 is the default, designed for side-by-side presenting with another window.
+- center - can vertically center presentations instead of top-aligned!!
+
+# Make Some Slides

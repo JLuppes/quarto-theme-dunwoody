@@ -1,0 +1,366 @@
+---
+title: "Quarto JS Demo"
+---
+
+# Quarto Slides Basics
+
+Write your slides in markdown!
+---
+
+## Start With a Markdown File
+
+Start your file with a block of YAML frontmatter:
+
+```yaml
+---
+title: This Presentation's Title
+---
+```
+
+
+---
+
+## Add Some Sections
+
+Heading level 1 makes new sections, which will start with their own title slide.
+
+```markdown
+# This Will Make a New Section
+```
+
+---
+
+## Then Add Some Slides
+
+Add Titles with Heading Level 2:
+
+```markdown
+## My First Slide
+
+The content of the slide
+```
+
+A horizontal rule will separate slides
+
+```markdown
+## Slide 1
+
+Content
+
+---
+
+## Slide 2
+
+More Content
+```
+
+# Making Slides With Code
+
+## Presenting Code
+
+Add a fenced code block with a language declaration, and line highlights in a curly field after:
+
+````quarto
+```{.python code-line-numbers="1|2|3-5"}
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+
+```
+````
+
+---
+
+## Result:
+
+No lines highlighted!!!!!!
+
+```{.python }
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+```
+
+---
+
+## Result:
+
+Highlight emtpy. Big code block!!!
+
+```{.python code-line-numbers="" startFrom='100'}
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+```
+
+---
+
+## Result:
+
+Full highlight.
+
+```{.python code-line-numbers="1|2|3-5"}
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+```
+
+---
+
+## Annotating Code
+
+You can add annotations to code!!!
+
+Put numbers in blocks like `# <1>` at the end of lines.
+
+This should be whatever the language's comment notation is, then angle brackets around a number.
+
+Then put an ordered list right after the code block!
+
+```markdown
+1. First Thing
+2. Second Thing
+```
+
+---
+
+## Here Is Some Annotated Python Code
+
+```{.python filename="app.py"}
+@app.route('/members/view/<int:id>')
+def view_member(id): # <1>
+    member = Members.query.get_or_404(id)
+    memberships = Memberships.query.all()
+    return render_template('view_member.html', member=member, memberships=memberships) # <2>
+```
+1. Start with the view_member function
+2. Make sure the return statement returns a view
+
+---
+
+## Some annotated CSS
+
+```{.css code-line-numbers="true" code-copy=true code-annotations=bottom code-block-height=100px}
+.car,
+.enemy {
+position: absolute;
+bottom: 100px;
+margin: auto;
+width: 50px;
+height: 100px;
+background-color: white;    /* <1> */
+line-height: 38px;
+font-size: 1.7em;
+text-align: center;
+vertical-align: middle;
+background-image: url(car2.png);
+background-size: cover;
+}
+.line {
+position: absolute;         /* <2> */
+height: 100px;              /* <2> */
+width: 10px;                /* <2> */
+margin-left: 195px;         /* <2> */
+background-color: white;    /* <2> */
+}
+.score {
+background-color: black;    /* <3> */
+height: 70px;               /* <3> */
+text-align: center;         /* <3> */
+color: white;               /* <3> */
+font-size: 1.5em;           /* <3> */
+font-family: fantasy;       /* <3> */
+}
+.gameArea {
+background-color: black;    /* <4> */
+width: 400px;               /* <4> */
+height: 100%;               /* <4> */
+overflow: hidden;           /* <4> */
+position: relative;         /* <4> */
+margin: auto;               /* <4> */
+}
+
+.startScreen {
+position: absolute;
+background-color: red;      /* <5> */
+left: 25%;
+top: 100px;
+color: white;               /* <6> */
+z-index: 1;
+text-align: center;
+border: 1px solid red;
+padding: 15px;
+margin: auto;
+width: 50%;
+font-family: sans-serif;
+}
+```
+1. Change color of your car (enemy cars will get random colors in javascript)
+2. Change anything about the road lines
+3. Changes colors or sizing of score board
+4. Change the color of the road
+5. Change background color of start screen
+6. Change text color of start screen
+
+---
+
+## Some JS
+
+```js
+console.log("First!!!!") // <1>
+console.log("Second!!!!!!") // <2>
+```
+1. First
+2. Second
+
+
+# Some More Tricks
+
+## Columns
+
+Add columns by using div markers:
+```markdown
+::: {.columns}
+
+
+::: {.column width="70%"}
+Stuff in first columns
+:::
+
+::: {.column width="70%"}
+Stuff in second column
+:::
+
+:::
+```
+
+---
+
+## Columns Example
+
+::: {.columns}
+
+::: {.column width="70%"}
+Here is some very simple html code:
+
+```html
+<h1>My Page</h1>
+<p>Here is a paragraph.</p>
+<img width="200px" src="./images/cat.jpg"/>
+```
+:::
+
+::: {.column width="30%"}
+And the result:
+
+<div style="border: 2px white dashed">
+
+<h1>My Page</h1>
+<p>Here is a paragraph.</p>
+<img width="200px" src="./images/cat.jpg"/>
+
+</div>
+:::
+
+:::
+
+---
+
+## Make Big Text
+
+
+A div with `r-fit-text`:
+```markdown
+::: r-fit-text
+This will be as big as possible!
+:::
+```
+
+Will look like this:
+
+
+::: r-fit-text
+This is big!
+:::
+
+---
+
+
+## Images
+
+Include images by linking to them markdown style:
+
+```markdown
+![](./images/cat.jpg){.absolute bottom=0 height="60%"}
+```
+
+![](./images/cat.jpg){.absolute bottom=0 height="60%"}
+
+---
+
+## Positioning Images
+
+
+(under construction)!!!!!
+
+![Look at how nicely this image works on the side over there, even when this text starts to get really long.]{.absolute style:"max-width=20%"}
+
+![](./images/cat.jpg){.absolute top="-10%" right="-10%" height="120%" style="max-height: unset;"}
+
+---
+
+## Incremental Lists
+
+You can make lists incremental, meaning they will display items one-by-one as you progress the presentation.
+
+You can make everything incremental by editing the yaml frontmatter:
+
+```yaml
+title: "My Presentation"
+format:
+  revealjs:
+    incremental: true
+```
+
+Or make one specific thing incremental by surrounding it with a div with an explicit class:
+````quarto
+::: {.incremental}
+- First
+- Second
+- Third
+:::
+````
+
+::: {.incremental}
+- First
+- Second
+- Third
+:::
