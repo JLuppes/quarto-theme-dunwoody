@@ -17,6 +17,7 @@ $font-family-monospace: "Source Code Pro", monospace;
 $presentation-font-size-root: 36px;
 $presentation-h1-font-size: 2.2em;
 $presentation-h2-font-size: 1.6em;
+$presentation-h3-font-size: 1.35em;
 $code-block-font-size: 0.75em;
 
 /* Theme Color Definitions */
@@ -39,6 +40,14 @@ $bar-color: $theme-dunwoody-maroon;
 
 /* Footer */
 $footer-height: 40px;
+
+/* Code Block Sizes */
+$code-heights: (
+  "tall-code": 85vh,
+  "med-code": 60vh,
+  "short-code": 35vh,
+  "micro-code": 20vh,
+);
 
 /*-- scss:rules --*/
 /* =========================================
@@ -68,7 +77,7 @@ body .reveal {
   }
   h2 {
     font-size: $presentation-h2-font-size !important;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.2em;
   }
   h3,
   h4,
@@ -77,7 +86,7 @@ body .reveal {
     padding-bottom: 0.1em;
   }
   h3 {
-    font-size: 1.35em !important;
+    font-size: $presentation-h3-font-size !important;
   }
 }
 
@@ -305,4 +314,103 @@ body .reveal {
   margin: 0 !important;
   display: inline !important;
   text-indent: 0 !important;
+}
+
+// Loop through the code size map and generate rules for each
+@each $name, $height in $code-heights {
+  .reveal div.sourceCode.#{$name},
+  .reveal pre.#{$name},
+  .reveal .code-wrapper.#{$name},
+  .reveal .#{$name} .code-wrapper,
+  .reveal .#{$name} pre {
+    max-height: $height !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+  }
+  .reveal .#{$name} code,
+  .reveal pre.#{$name} code {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* =========================================
+   4. IMAGES & CAPTIONS
+   ========================================= */
+
+/* --- A. STRETCHED FIGURES (WITH CAPTIONS) --- */
+.reveal .slides section figure.stretch,
+.reveal .slides section figure.r-stretch {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.reveal .slides section figure.stretch img,
+.reveal .slides section figure.r-stretch img {
+  height: auto !important;
+  max-height: calc(100% - 2.5em) !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+}
+
+.reveal .slides section figure.stretch figcaption,
+.reveal .slides section figure.r-stretch figcaption {
+  flex-shrink: 0 !important;
+  margin-top: 0.5em !important;
+  font-size: 0.8em !important;
+  text-align: center !important;
+}
+
+/* --- B. BARE STRETCHED IMAGES (NO CAPTIONS) --- */
+.reveal .slides section img.stretch,
+.reveal .slides section img.r-stretch {
+  height: auto !important;
+  max-height: 70vh !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* --- C. STANDARD & MANUALLY SIZED IMAGES --- */
+.reveal
+  .slides
+  section
+  img:not([height]):not([style*="height"]):not(.stretch):not(.r-stretch) {
+  height: auto !important;
+}
+
+.reveal
+  .slides
+  section
+  img:not([width]):not([style*="width"]):not(.stretch):not(.r-stretch) {
+  width: auto !important;
+}
+
+.reveal .slides section figure:not(.stretch):not(.r-stretch) img,
+.reveal .slides section img:not(.stretch):not(.r-stretch) {
+  display: inline-block !important;
+  max-height: 60vh !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+/* =========================================
+   5. TITLE SLIDE STYLING
+   ========================================= */
+
+#title-slide h1,
+#title-slide h2,
+#title-slide h3,
+#title-slide p {
+  text-shadow: 0px 4px 15px rgba(179, 179, 179, 0.8) !important;
+
+  // Optional: Force text to white if your banner is dark
+  // color: white !important;
 }
