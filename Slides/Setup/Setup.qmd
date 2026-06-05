@@ -28,7 +28,15 @@ There are also some for Jupyter, RStudio, and Neovim, if those fit your workflow
 
 ## Get the Dunwoody Theme Repo
 
-Link here: (coming soon)
+You can check out the [GitHub repo here](https://github.com/JLuppes/quarto-theme-dunwoody).
+
+To start building your slides, you can import this theme as a template:
+
+In the terminal, type: `quarto use template jluppes/quarto-theme-dunwoody`
+
+(It will ask you if you want to use the current directory or a sub-directory, your choice!)
+
+This will grab all the files, and set up a folder called Slides, though you can author your presentations in any folder.
 
 ---
 
@@ -48,7 +56,7 @@ Two files to configure:
 ## _quarto.yml (Project-level)
 
 - Author Name (will display on title cards unless overridden)
-- Project Title (not sure where this is used?)
+- Project Title (used for some types of consolidated outputs)
 
 ---
 
@@ -57,8 +65,6 @@ Two files to configure:
 The `format` header controls which formats are generated when you use `quarto render`.
 
 These are defaulted to revealjs (html-based slideshow) and pdf.
-
-## _metadata.yml (continued)
 
 Revealjs settings worth considering:
 

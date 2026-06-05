@@ -88,7 +88,7 @@ def view_member(id): # <1>
 
 ## Result:
 
-No lines highlighted!!!!!!
+No lines highlighted!
 
 ```{.python }
 @app.route('/members/view/<int:id>')
@@ -102,7 +102,7 @@ def view_member(id): # <1>
 
 ## Result:
 
-Highlight empty. Big code block!!!
+Highlight empty. Big code block!
 
 ```{.python code-line-numbers="" startFrom='100'}
 @app.route('/members/view/<int:id>')
@@ -139,7 +139,7 @@ def view_member(id): # <1>
 Full highlight.
 
 ```{.python code-line-numbers="1|2|3-5"}
-@app.route('/members/view/<int:id>')
+@app.route('/members/view\/<int:id>')
 def view_member(id): # <1>
     member = Members.query.get_or_404(id)
     memberships = Memberships.query.all()
@@ -150,7 +150,7 @@ def view_member(id): # <1>
 
 ## Annotating Code
 
-You can add annotations to code!!!
+You can add annotations to code!!
 
 Put numbers in blocks like `# <1>` at the end of lines.
 

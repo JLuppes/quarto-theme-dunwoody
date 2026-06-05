@@ -1,5 +1,5 @@
-# Rendered presentations
-/docs
+# Speaker Files (Security issue - don't include these in a repo!)
+*-speaker.html
 
 # Dependencies
 **/libs
