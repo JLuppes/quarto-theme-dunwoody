@@ -2,6 +2,12 @@
 
 This repo provides a custom Dunwoody theme for Quarto, which will generate RevealJS HTML slideshow presentations.
 
+## Demo
+
+You can see the [setup](https://jluppes.github.io/quarto-theme-dunwoody/Slides/Setup/Setup.htm) and [demo](https://jluppes.github.io/quarto-theme-dunwoody/Slides/Demo/demo.html) presentations on [GitHub Pages](https://jluppes.github.io/quarto-theme-dunwoody/).
+
+Note - these are optimized for half-screen presentation (side-by-side with another window), but should be responsive and work pretty well in most resolutions.
+
 ## First Time Setup
 
 The easiest way to get started is to use this repo as a [Quarto Starter Template](https://quarto.org/docs/extensions/starter-templates.html).
