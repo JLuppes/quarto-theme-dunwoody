@@ -19,7 +19,6 @@ title-slide-attributes:
 
 # Quarto Slides Basics - Write your slides in markdown!
 
----
 
 ## Start With a Markdown File
 
