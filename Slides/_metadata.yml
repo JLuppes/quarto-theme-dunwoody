@@ -1,6 +1,6 @@
 # These are settings for just the slides directory
 
-author: "Dunwoody College of Technology" # Can be overridden on each presentation
+author: "Dunwoody College of Technology" # Can be overridden here or on each presentation
 theme: [../Themes/dunwoody.scss]
 code-overflow: wrap
 code-annotations: below
@@ -23,6 +23,5 @@ format:
     scrollable: true # Vertical overflow becomes scrollable
   pdf: # This creates a pdf file
     toc: true # Table of contents
-    number-sections: true
+    number-sections: false
     colorlinks: true
-    syntax-highlighting: monokai
